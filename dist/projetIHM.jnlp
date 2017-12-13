@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="projetIHM.jnlp">
+  <information>
+    <title>projetIHM</title>
+    <vendor>Shinji</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="lib/ant-javafx.jar" size="1224175" download="eager" />
+    <jar href="lib/derby.jar" size="2729000" download="eager" />
+    <jar href="lib/derbyclient.jar" size="568482" download="eager" />
+    <jar href="lib/derbynet.jar" size="245379" download="eager" />
+    <jar href="lib/dt.jar" size="163047" download="eager" />
+    <jar href="lib/fontawesomefx-8.9.jar" size="571068" download="eager" />
+    <jar href="lib/javafx-mx.jar" size="36038" download="eager" />
+    <jar href="lib/jconsole.jar" size="407728" download="eager" />
+    <jar href="lib/jfoenix.jar" size="2401594" download="eager" />
+    <jar href="lib/packager.jar" size="4646" download="eager" />
+    <jar href="lib/sa-jdi.jar" size="2415493" download="eager" />
+    <jar href="lib/tools.jar" size="18290333" download="eager" />
+    <jar href="projetIHM.jar" size="1092814" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="projetIHM" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="fr.sameh.vue.MainApp"  name="projetIHM" />
+  <update check="always"/>
+</jnlp>
