@@ -39,7 +39,6 @@ public class MagazineController implements Initializable {
     private Label labelDatePublication;
     @FXML
     private JFXTextArea JFXTextAreaContenuArticle;
-
     private MainApp mainap;
 
     /**
@@ -79,7 +78,8 @@ public class MagazineController implements Initializable {
                  
                 return cell;
             }
-        });
+        }); /*http://java-buddy.blogspot.fr/2013/05/implement-javafx-listview-for-custom.html*/
+            /*https://stackoverflow.com/questions/9722418/how-to-handle-listview-item-clicked-action*/
     }
     
     @FXML 
