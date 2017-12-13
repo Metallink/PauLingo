@@ -20,7 +20,7 @@
     <jar href="lib/packager.jar" size="4646" download="eager" />
     <jar href="lib/sa-jdi.jar" size="2415493" download="eager" />
     <jar href="lib/tools.jar" size="18290333" download="eager" />
-    <jar href="projetIHM.jar" size="1092616" download="eager" />
+    <jar href="projetIHM.jar" size="1093299" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="projetIHM" >
     <param name="requiredFXVersion" value="8.0+"/>

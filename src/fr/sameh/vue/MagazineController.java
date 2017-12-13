@@ -6,7 +6,6 @@
 package fr.sameh.vue;
 
 import com.jfoenix.controls.JFXListView;
-import com.jfoenix.controls.JFXTextArea;
 import fr.sameh.classes.Articles;
 import fr.sameh.classes.English;
 import fr.sameh.classes.dateUtil;
@@ -17,8 +16,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
-import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -38,7 +37,8 @@ public class MagazineController implements Initializable {
     @FXML
     private Label labelDatePublication;
     @FXML
-    private JFXTextArea JFXTextAreaContenuArticle;
+    private TextArea labelContenuArticle;
+    
     private MainApp mainap;
 
     /**
@@ -56,28 +56,24 @@ public class MagazineController implements Initializable {
         
         listviewArticles.setItems(eng.getArticlesData());
         //Label.setText();
-        listviewArticles.setCellFactory(new Callback<ListView<Articles>, ListCell<Articles>>(){
- 
-            @Override
-            public ListCell<Articles> call(ListView<Articles> p) {
-                 
-                ListCell<Articles> cell = new ListCell<Articles>(){
- 
-                    @Override
-                    protected void updateItem(Articles unArticle, boolean bln) {
-                        super.updateItem(unArticle, bln);
-                        if (unArticle != null) {
-                            labelNomArticle.setText(unArticle.getNameArticle());
-                            labelNomAuteur.setText (unArticle.getAuthorArticle());
-                            labelDatePublication.setText(dateUtil.format(unArticle.getPublicationDate()));
-                            JFXTextAreaContenuArticle.setText(unArticle.getContentArticle());
-                        }
+        listviewArticles.setCellFactory((ListView<Articles> p) -> {
+            ListCell<Articles> cell = new ListCell<Articles>(){
+                
+                @Override
+                protected void updateItem(Articles unArticle, boolean bln) {
+                    super.updateItem(unArticle, bln);
+                    if (unArticle != null) {
+                        setText(unArticle.getNameArticle());
+                        labelNomArticle.setText(unArticle.getNameArticle());
+                        labelNomAuteur.setText(unArticle.getAuthorArticle());
+                        labelDatePublication.setText(dateUtil.format(unArticle.getPublicationDate()));
+                        labelContenuArticle.setText(unArticle.getContentArticle());
                     }
- 
-                };
-                 
-                return cell;
-            }
+                }
+                
+            };
+            
+            return cell;
         }); /*http://java-buddy.blogspot.fr/2013/05/implement-javafx-listview-for-custom.html*/
             /*https://stackoverflow.com/questions/9722418/how-to-handle-listview-item-clicked-action*/
     }
@@ -93,7 +89,7 @@ public class MagazineController implements Initializable {
     /**
      * Is called by the main application to give a reference back to itself.
      *
-     * @param mainApp
+     * @param app
      */
     public void setMainApp(MainApp app) {
         this.mainap = app;
