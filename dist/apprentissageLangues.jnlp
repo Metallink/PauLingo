@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="apprentissageLangues.jnlp">
+  <information>
+    <title>apprentissageLangues</title>
+    <vendor>rtaillandier</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="apprentissageLangues.jar" size="985232" download="eager" />
+    <jar href="lib\derby.jar" size="3232158" download="eager" />
+    <jar href="lib\derbyclient.jar" size="587959" download="eager" />
+    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
+    <jar href="lib\jPDFViewerFX.jar" size="4195886" download="eager" />
+    <jar href="lib\jfoenix.jar" size="2401594" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="apprentissageLangues" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="apprentissagelangues.ApprentissageLangues"  name="apprentissageLangues" />
+  <update check="always"/>
+</jnlp>
