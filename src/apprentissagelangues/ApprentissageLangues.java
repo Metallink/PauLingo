@@ -5,8 +5,9 @@
  */
 package apprentissagelangues;
 
+import apprentissagelangues.model.ArticlesDAO;
 import apprentissagelangues.model.UtilisateursDAO;
-import apprentissagelangues.view.initInterfacePlusAccueil.initInterfaceFXML;
+import apprentissagelangues.view.Magazine.MagazineController;
 import apprentissagelangues.view.choixOptionsApplication.menuPrincipalChoixOptionsControleur;
 import apprentissagelangues.view.exercices.interfaceAccueilExercicesControleur;
 import apprentissagelangues.view.initInterfacePlusAccueil.authentificationFXMLControleur;
@@ -41,96 +42,88 @@ public class ApprentissageLangues extends Application {
     
     private Stage primaryStage;
     private AnchorPane rootLayout;
-    @FXML
-   
+    
     private FadeTransition ft;
     private String nomUtilisateur;
    
     
     //on commence par afficher l'accueil
     @Override
-    public void start(Stage primaryStage) throws IOException, SQLException {
-        primaryStage.setResizable(false);
+    public void start(Stage primaryStage) throws IOException, SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+        
         this.setPrimaryStage(primaryStage); //on affecte à notre variable d'état primaryStage, une scène qui a été déjà instancié
         this.primaryStage.setTitle("ApprentissageLanguages");
-        initAccueil();
-        this.showContenueAccueil();
+        showContenueAccueil();
+        
        
     }
 
     //on initialise une scène vide
-    public void initAccueil() throws IOException, SQLException {
-       // UtilisateursDAO lUtilisateursDAO = new UtilisateursDAO();//Permet de créar la table utilisateur et de l'alimenter
-       //lUtilisateursDAO.createTableUtilisateur();
-       //lUtilisateursDAO.insertUtilisateurs();
+    public void showContenueAccueil() throws IOException, SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+        UtilisateursDAO lUtilisateursDAO = new UtilisateursDAO();//Permet de créar la table utilisateur et de l'alimenter lors de la première éxecution du programme
+        if(!(lUtilisateursDAO.tableExist()))
+        {
+            lUtilisateursDAO.createTableUtilisateur();
+            lUtilisateursDAO.insertUtilisateurs();
+        }
+       
+       ArticlesDAO lArticlesDAO=new ArticlesDAO();
+       if(!(lArticlesDAO.tableExist()))
+        {
+            lArticlesDAO.createTableArticles();
+            lArticlesDAO.inserArticles();
+        }
+       
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(ApprentissageLangues.class.getResource("view/initInterfacePlusAccueil/initInterfaceFXML.fxml"));
+        loader.setLocation(ApprentissageLangues.class.getResource("view/initInterfacePlusAccueil/authentificationFXML.fxml"));
         rootLayout = (AnchorPane) loader.load();
         Scene scene = new Scene(rootLayout);
-        
-        
         primaryStage.setScene(scene);
-        primaryStage.show();
+        primaryStage.show();      
+        authentificationFXMLControleur controller = loader.getController();
+        controller.setApprentissageLangues(this);
         
       
     }
     
     //on alimente la scène vide avec une vue
-    public void showContenueAccueil() throws IOException{
-        
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ApprentissageLangues.class.getResource("view/initInterfacePlusAccueil/authentificationFXML.fxml"));
-            
-            
-            AnchorPane unAuthentificateur = (AnchorPane) loader.load();
-            
-           primaryStage.setHeight(586);
-            primaryStage.setWidth(1077);
-            rootLayout.getChildren().add(unAuthentificateur);
-            
-           
-           
-            // Give the controller access to the main app.
-        authentificationFXMLControleur controller = loader.getController();
-        controller.setApprentissageLangues(this);
-       
-    }
     
    //on vide la scène et on met une nouvelle vue dans la scène  
    public void showChoixLangues() throws IOException{
-            primaryStage.setHeight(510); //on redimensionne la scène pour que la vue puisse s'afficher entièrement
-            primaryStage.setWidth(800);
-            rootLayout.getChildren().clear(); //on vide la scène
             
+            primaryStage.close();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(ApprentissageLangues.class.getResource("view/selectionLangues/choixLanguesFXML.fxml"));
             AnchorPane unContenueChoixLangues = (AnchorPane) loader.load();//on charge la vue dans un anchor pane
-            
-            rootLayout.getChildren().add(unContenueChoixLangues);//on met la nouvelle vue dans la scène vide
+            Scene scene = new Scene(unContenueChoixLangues);
+            primaryStage.setScene(scene);
             ft = new FadeTransition(Duration.millis(500), unContenueChoixLangues);//on met en place une petite animation pour l'affichage de la nouvelle vue
             ft.setFromValue(0.0);
             ft.setToValue(1.0);
             ft.play();
+            primaryStage.show();
+            
+            
             // Give the controller access to the main app.
-        choixLanguesControleur controller = loader.getController();//on lie le controller de base avec le controller de la vue 
-        controller.setApprentissageLangues(this);
+            choixLanguesControleur controller = loader.getController();//on lie le controller de base avec le controller de la vue 
+            controller.setApprentissageLangues(this);
         
        
     }
    
    public void showChoixOptions(String nomLangue) throws IOException{
-            primaryStage.setHeight(800);
-            primaryStage.setWidth(1371);
-            rootLayout.getChildren().clear();
-            
+           
+            primaryStage.close();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(ApprentissageLangues.class.getResource("view/choixOptionsApplication/menuPrincipalChoixOptionsFXML.fxml"));
             AnchorPane unContenueChoixOptions = (AnchorPane) loader.load();
-            rootLayout.getChildren().add(unContenueChoixOptions);
+            Scene scene = new Scene(unContenueChoixOptions);
+            primaryStage.setScene(scene);
             ft = new FadeTransition(Duration.millis(500), unContenueChoixOptions);
             ft.setFromValue(0.0);
             ft.setToValue(1.0);
             ft.play();
+            primaryStage.show();
             // Give the controller access to the main app.
             menuPrincipalChoixOptionsControleur controller = loader.getController();
             
@@ -141,19 +134,17 @@ public class ApprentissageLangues extends Application {
     }
    
    public void showInterfaceOutil(String nomLangue) throws IOException{
-            primaryStage.setHeight(640);
-            primaryStage.setWidth(830);
-            rootLayout.getChildren().clear();
-            
+            primaryStage.close();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(ApprentissageLangues.class.getResource("view/outil/interfaceOutilFXML.fxml"));
             AnchorPane lOutil = (AnchorPane) loader.load();
-            rootLayout.getChildren().add(lOutil);
+            Scene scene = new Scene(lOutil);
+            primaryStage.setScene(scene);
             ft = new FadeTransition(Duration.millis(500), lOutil);
             ft.setFromValue(0.0);
             ft.setToValue(1.0);
             ft.play();
-            // Give the controller access to the main app.
+            primaryStage.show();
             interfaceOutilControleur controller = loader.getController();
             
             controller.setApprentissageLangues(this);
@@ -163,18 +154,17 @@ public class ApprentissageLangues extends Application {
     }
    
    public void showInterfaceLexique(String nomLangue) throws IOException{
-            primaryStage.setHeight(850);
-            primaryStage.setWidth(982);
-            rootLayout.getChildren().clear();
-            
+            primaryStage.close();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(ApprentissageLangues.class.getResource("view/outil/interfaceLexiqueFXML.fxml"));
             AnchorPane leLexique = (AnchorPane) loader.load();
-            rootLayout.getChildren().add(leLexique);
+            Scene scene = new Scene(leLexique);
+            primaryStage.setScene(scene);
             ft = new FadeTransition(Duration.millis(500), leLexique);
             ft.setFromValue(0.0);
             ft.setToValue(1.0);
             ft.play();
+            primaryStage.show();
             // Give the controller access to the main app.
             interfaceLexiqueControleur controller = loader.getController();
             
@@ -185,18 +175,17 @@ public class ApprentissageLangues extends Application {
     }
    
    public void showInterfaceGuideGramma(String nomLangue) throws IOException{
-            primaryStage.setHeight(840);
-            primaryStage.setWidth(1397);
-            rootLayout.getChildren().clear();
-            
+            primaryStage.close();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(ApprentissageLangues.class.getResource("view/outil/interfaceGuideGrammaFXML.fxml"));
             AnchorPane leGuideGramma = (AnchorPane) loader.load();
-            rootLayout.getChildren().add(leGuideGramma);
+            Scene scene = new Scene(leGuideGramma);
+            primaryStage.setScene(scene);
             ft = new FadeTransition(Duration.millis(500), leGuideGramma);
             ft.setFromValue(0.0);
             ft.setToValue(1.0);
             ft.play();
+            primaryStage.show();
             // Give the controller access to the main app.
             interfaceGuideGrammaControleur controller=loader.getController();
             
@@ -207,18 +196,17 @@ public class ApprentissageLangues extends Application {
     }
    
    public void showInterfaceAccueilExercices(String nomLangue) throws IOException{
-            primaryStage.setHeight(745);
-            primaryStage.setWidth(964);
-            rootLayout.getChildren().clear();
-            
+            primaryStage.close();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(ApprentissageLangues.class.getResource("view/exercices/interfaceAccueilExercicesFXML.fxml"));
             AnchorPane lAccueilExo = (AnchorPane) loader.load();
-            rootLayout.getChildren().add(lAccueilExo);
+            Scene scene = new Scene(lAccueilExo);
+            primaryStage.setScene(scene);
             ft = new FadeTransition(Duration.millis(500), lAccueilExo);
             ft.setFromValue(0.0);
             ft.setToValue(1.0);
             ft.play();
+            primaryStage.show();
             // Give the controller access to the main app.
             interfaceAccueilExercicesControleur controller=loader.getController();
             
@@ -227,6 +215,25 @@ public class ApprentissageLangues extends Application {
         
        
     }
+   
+   public void showMagazine(String nomLangue) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+       primaryStage.close();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(ApprentissageLangues.class.getResource("view/Magazine/magasine.fxml"));
+            AnchorPane lMagazine = (AnchorPane) loader.load();
+            Scene scene = new Scene(lMagazine);
+            primaryStage.setScene(scene);
+            ft = new FadeTransition(Duration.millis(500), lMagazine);
+            ft.setFromValue(0.0);
+            ft.setToValue(1.0);
+            ft.play();
+            primaryStage.show();
+            // Give the controller access to the main app.
+            MagazineController controller=loader.getController();
+            
+            controller.setApprentissageLangues(this);
+            controller.initialize(nomLangue);
+   }
     
     public void setNomUtilisateur(String nomUtilisateur) {
         this.nomUtilisateur = nomUtilisateur;

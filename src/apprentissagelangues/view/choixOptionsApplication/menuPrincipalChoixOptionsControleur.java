@@ -71,8 +71,8 @@ public class menuPrincipalChoixOptionsControleur {
    }
    
    @FXML
-   private void eventBtnMagazin(){
-       JOptionPane.showMessageDialog(null, "En développement.");
+   private void eventBtnMagazin() throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+       lApprentissageLangues.showMagazine(leNomLangue);
    }
    
    @FXML

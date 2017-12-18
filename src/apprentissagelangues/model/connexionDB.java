@@ -19,9 +19,10 @@ public class connexionDB {
     private java.sql.Connection _laConnexion;
     private Statement _sta;
 
-    public java.sql.Connection returnConnexion() throws SQLException{
+    public java.sql.Connection returnConnexion() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
         try {
-            _laConnexion=java.sql.DriverManager.getConnection("jdbc:derby://localhost:1527/PauLingo", "root", "root");
+            Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
+            _laConnexion=java.sql.DriverManager.getConnection("jdbc:derby://localhost:1527/PauLingo;create=true", "root", "root");
             System.out.println("Connection success!");
             return _laConnexion;
         } catch (SQLException e) {
@@ -29,6 +30,14 @@ public class connexionDB {
             return null;
         }
     }
+    
+    public void shutdownDB() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+        java.sql.Connection laConnexion = this.returnConnexion();
+        DriverManager.getConnection(
+        "jdbc:derby:;shutdown=true");
+    }
+    
+    
     
    
 }

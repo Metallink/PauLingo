@@ -32,7 +32,7 @@ import javax.swing.JOptionPane;
 /**
  * FXML Controller class
  *
- * @author Sameh EL AWADI
+ *
  */
 public class authentificationFXMLControleur {
 
@@ -67,12 +67,12 @@ public class authentificationFXMLControleur {
     }
     
     @FXML
-    private void eventBtnLog() throws SQLException, IOException{
+    private void eventBtnLog() throws SQLException, IOException, ClassNotFoundException, InstantiationException, IllegalAccessException{
         this.loginToDB(this.leLogin.getText(),this.textPassword.getText());
     }
 
    
-    private void loginToDB(String pseudo, String mdp) throws IOException  {
+    private void loginToDB(String pseudo, String mdp) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException  {
 
         
         String users=new String();

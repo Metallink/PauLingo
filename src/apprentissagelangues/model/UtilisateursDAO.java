@@ -5,6 +5,8 @@
  */
 package apprentissagelangues.model;
 
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -18,7 +20,7 @@ public class UtilisateursDAO {
     private connexionDB _laConnexion = new connexionDB();
     private Statement _sta;
     
-    public void createTableUtilisateur() throws SQLException{
+    public void createTableUtilisateur() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
          java.sql.Connection laConnexion=_laConnexion.returnConnexion();
         _sta=laConnexion.createStatement();
         _sta.execute("CREATE TABLE UTILISATEUR" +
@@ -31,11 +33,24 @@ public class UtilisateursDAO {
        
     }
     
-    public void insertUtilisateurs() throws SQLException{
+    public void insertUtilisateurs() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
         java.sql.Connection laConnexion=_laConnexion.returnConnexion();
         _sta=laConnexion.createStatement();
         _sta.execute("insert into UTILISATEUR (pseudo,mdp) values('remy','remy')");
         _sta.execute("insert into UTILISATEUR (pseudo,mdp) values('sameh','sameh')");
         
+    }
+    
+    public boolean tableExist() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+        java.sql.Connection laConnexion=_laConnexion.returnConnexion();
+        boolean exist=false;
+        try (ResultSet rs = laConnexion.getMetaData().getTables(null, null, "UTILISATEUR", null)) {
+            if(rs.next())
+            {
+                exist=true;
+            }
+        }
+
+        return exist;
     }
 }

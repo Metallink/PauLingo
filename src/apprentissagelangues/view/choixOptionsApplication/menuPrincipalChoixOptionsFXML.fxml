@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,14 +8,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-<?import java.net.URL?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apprentissagelangues.view.choixOptionsApplication.menuPrincipalChoixOptionsControleur">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apprentissagelangues.view.choixOptionsApplication.menuPrincipalChoixOptionsControleur">
     <stylesheets>
         <URL value="@menuprincipalchoixoptionsfxml.css" />
     </stylesheets>  
     <children>
-      <AnchorPane layoutY="422.0" prefHeight="347.0" prefWidth="1366.0" style="-fx-background-color: WHITE;">
+      <AnchorPane layoutY="422.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="1366.0" style="-fx-background-color: WHITE;">
          <children>
             <HBox fx:id="boxMenus" layoutX="353.0" layoutY="69.0" prefHeight="227.0" prefWidth="661.0" spacing="20.0">
                <children>
@@ -87,7 +80,7 @@
             <Circle fill="DODGERBLUE" layoutX="683.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="424.0" prefWidth="1366.0" style="-fx-background-color: #1e90ff;">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="1366.0" style="-fx-background-color: #1e90ff;">
          <children>
             <Label layoutX="1333.0" layoutY="14.0" onMouseClicked="#handleClose" style="-fx-cursor: hand;" text="X" textFill="WHITE">
                <font>
