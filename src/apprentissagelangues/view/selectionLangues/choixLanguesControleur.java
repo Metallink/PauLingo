@@ -37,7 +37,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Shinji
+ * @author Sameh EL AWADI
  */
 public class choixLanguesControleur{
 

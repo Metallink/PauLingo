@@ -8,25 +8,15 @@ package apprentissagelangues.view.initInterfacePlusAccueil;
 import apprentissagelangues.ApprentissageLangues;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
-import com.jfoenix.controls.JFXTextArea;
 import apprentissagelangues.model.connexionDB;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -56,6 +46,7 @@ public class authentificationFXMLControleur {
     private JFXButton btnSignUp;
     @FXML
     private Label labelExitProgram;
+    
     private ApprentissageLangues lApprentissageLangues;
 
     /**
@@ -69,6 +60,12 @@ public class authentificationFXMLControleur {
     @FXML
     private void eventBtnLog() throws SQLException, IOException, ClassNotFoundException, InstantiationException, IllegalAccessException{
         this.loginToDB(this.leLogin.getText(),this.textPassword.getText());
+    }
+    
+    @FXML
+    private void creationDeCompte() throws IOException {
+        
+        lApprentissageLangues.showCreationCompte();
     }
 
    
@@ -97,7 +94,7 @@ public class authentificationFXMLControleur {
             }
             
             
-        }catch(SQLException e){
+        } catch(SQLException e){
             e.printStackTrace();
         } 
 

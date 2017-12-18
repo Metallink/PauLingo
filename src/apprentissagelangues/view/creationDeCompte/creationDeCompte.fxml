@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apprentissagelangues.view.creationDeCompte.CreationDeCompteController">
+   <children>
+      <Pane prefHeight="559.0" prefWidth="199.0" style="-fx-background-color: #3f80ea;">
+         <children>
+            <ImageView fitHeight="151.0" fitWidth="158.0" layoutX="21.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../choixOptionsApplication/images/logoPL.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="274.0" layoutY="66.0" text="Création de compte" textFill="#3f80ea">
+         <font>
+            <Font name="Nunito Black" size="24.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="JFXTextFieldNom" labelFloat="true" layoutX="274.0" layoutY="175.0" prefHeight="28.0" prefWidth="252.0" promptText="Nom">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="JFXTextFieldPrenom" labelFloat="true" layoutX="648.0" layoutY="175.0" prefHeight="25.0" prefWidth="252.0" promptText="Prénom">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="JFXTextFieldIdentifiant" labelFloat="true" layoutX="274.0" layoutY="273.0" prefHeight="28.0" prefWidth="252.0" promptText="Choisissez un identifiant">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="JFXTextFieldAdresseMail" labelFloat="true" layoutX="648.0" layoutY="273.0" prefHeight="25.0" prefWidth="252.0" promptText="Adresse mail">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField fx:id="JFXMotDePasse" labelFloat="true" layoutX="274.0" layoutY="365.0" prefHeight="25.0" prefWidth="252.0" promptText="Mot de passe">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXPasswordField fx:id="JFXMotDePasseConfirmation" labelFloat="true" layoutX="648.0" layoutY="365.0" prefHeight="25.0" prefWidth="252.0" promptText="Confirmer votre mot de passe">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton fx:id="JFXButtonValider" layoutX="648.0" layoutY="461.0" onAction="#creationCompte" prefHeight="37.0" prefWidth="107.0" style="-fx-background-color: #3f80ea; -fx-cursor: hand;" text="Valider" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="JFXButtonAnnuler" layoutX="793.0" layoutY="461.0" onAction="#retourAccueil" prefHeight="37.0" prefWidth="107.0" style="-fx-background-color: #3f80ea; -fx-cursor: hand;" text="Annuler" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <Separator layoutX="274.0" layoutY="130.0" prefHeight="6.0" prefWidth="625.0" />
+      <Label layoutX="281.0" layoutY="468.0" text="Veuillez remplir tous les champs." textFill="RED" visible="false">
+         <font>
+            <Font name="Nunito ExtraLight" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelErreur" layoutX="291.0" layoutY="478.0" text="Veuillez remplir tous les champs." textFill="RED" visible="false">
+         <font>
+            <Font name="Nunito ExtraLight" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
