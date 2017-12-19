@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apprentissagelangues.view.choixOptionsApplication.menuPrincipalChoixOptionsControleur">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apprentissagelangues.view.choixOptionsApplication.menuPrincipalChoixOptionsControleur">
     <stylesheets>
         <URL value="@menuprincipalchoixoptionsfxml.css" />
     </stylesheets>  
@@ -92,7 +92,7 @@
                   <Image url="@images/logoPL.png" />
                </image>
             </ImageView>
-            <Label layoutX="556.0" layoutY="177.0" text="Welcome " textFill="WHITE">
+            <Label fx:id="labelBienvenue" layoutX="556.0" layoutY="177.0" text="Welcome " textFill="WHITE">
                <font>
                   <Font size="62.0" />
                </font>

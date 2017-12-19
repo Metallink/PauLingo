@@ -6,7 +6,7 @@
 package apprentissagelangues;
 
 import apprentissagelangues.model.UtilisateursDAO;
-import apprentissagelangues.view.Magazine.MagazineController;
+import apprentissagelangues.view.magazine.MagazineController;
 import apprentissagelangues.view.choixOptionsApplication.menuPrincipalChoixOptionsControleur;
 import apprentissagelangues.view.creationDeCompte.CreationDeCompteController;
 import apprentissagelangues.view.exercices.interfaceAccueilExercicesControleur;
@@ -20,17 +20,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -215,10 +207,10 @@ public class ApprentissageLangues extends Application {
 
     }
 
-    public void showMagazine(String nomLangue) throws IOException {
+    public void showMagazine(String nomLangue) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
         primaryStage.close();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(ApprentissageLangues.class.getResource("view/Magazine/magasine.fxml"));
+        loader.setLocation(ApprentissageLangues.class.getResource("view/magazine/magazine.fxml"));
         AnchorPane lMagazine = (AnchorPane) loader.load();
         Scene scene = new Scene(lMagazine);
         primaryStage.setScene(scene);

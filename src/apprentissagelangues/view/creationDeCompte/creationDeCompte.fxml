@@ -52,7 +52,7 @@
             <Font size="16.0" />
          </font>
       </JFXPasswordField>
-      <JFXPasswordField fx:id="JFXMotDePasseConfirmation" labelFloat="true" layoutX="648.0" layoutY="365.0" prefHeight="25.0" prefWidth="252.0" promptText="Confirmer votre mot de passe">
+      <JFXPasswordField fx:id="JFXMotDePasseConfirmation" labelFloat="true" layoutX="648.0" layoutY="365.0" onAction="#appuieEntree" prefHeight="25.0" prefWidth="252.0" promptText="Confirmer votre mot de passe">
          <font>
             <Font size="16.0" />
          </font>

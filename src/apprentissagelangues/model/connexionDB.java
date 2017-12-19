@@ -32,12 +32,8 @@ public class connexionDB {
     }
     
     public void shutdownDB() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
-        java.sql.Connection laConnexion = this.returnConnexion();
+        Connection laConnexion = this.returnConnexion();
         DriverManager.getConnection(
         "jdbc:derby:;shutdown=true");
-    }
-    
-    
-    
-   
+    } 
 }

@@ -5,20 +5,18 @@
  */
 package apprentissagelangues.model;
 
-import java.time.LocalDate;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
  *
- * @author Rémy
+ * @author Sameh EL AWADI
  */
 public class Articles {
+
     private final StringProperty nameArticle;
     private final StringProperty authorArticle;
-    private final ObjectProperty<LocalDate> publicationDate;
+    private final StringProperty publicationDate;
     private final StringProperty contentArticle;
 
     /**
@@ -28,20 +26,14 @@ public class Articles {
         this(null);
     }
 
-    /**
-     * Constructor with some initial data.
-     *
-     *
-     * @param nameArticle
-     */
+    /* constructeurs*/
     public Articles(String nameArticle) {
         this.nameArticle = new SimpleStringProperty(nameArticle);
 
         // Some initial dummy data, just for convenient testing.
         this.contentArticle = new SimpleStringProperty("");
         this.authorArticle = new SimpleStringProperty("");
-        this.publicationDate = new SimpleObjectProperty<>(LocalDate.of(1999, 2, 21));
-        //this.publicationDate = new SimpleObjectProperty<LocalDate>(LocalDate.of(1999, 2, 21));
+        this.publicationDate = new SimpleStringProperty("");
     }
 
     public Articles(String nameArticle, String authorArticle, String contentArticle, String publicationDate) {
@@ -50,10 +42,10 @@ public class Articles {
         // Some initial dummy data, just for convenient testing.
         this.contentArticle = new SimpleStringProperty(contentArticle);
         this.authorArticle = new SimpleStringProperty(authorArticle);
-        this.publicationDate = new SimpleObjectProperty<>(LocalDate.of(1999, 2, 21));
-        //this.publicationDate = new SimpleObjectProperty<LocalDate>(LocalDate.of(1999, 2, 21));
+        this.publicationDate = new SimpleStringProperty(publicationDate);
     }
 
+    /* GETTERS/SETTERS */
     public String getAuthorArticle() {
         return authorArticle.get();
     }
@@ -90,18 +82,15 @@ public class Articles {
         return nameArticle;
     }
 
-    public LocalDate getPublicationDate() {
+    public String getPublicationDate() {
         return publicationDate.get();
     }
 
-    public void setPublicationDate(LocalDate publicationDate) {
+    public void setPublicationDate(String publicationDate) {
         this.publicationDate.set(publicationDate);
     }
 
-    public ObjectProperty<LocalDate> publicationDateProperty() {
-        return publicationDate;
-    }
-    
+    /* toString nécessaire pour afficher correctement le nom de l'article dans la listview dans la partie magazine de l'app */
     public String toString() {
         return getNameArticle();
     }

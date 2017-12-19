@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -75,6 +76,12 @@ public class CreationDeCompteController implements Initializable {
             labelErreur.setVisible(false);
             return false;
         }
+    }
+    
+    // fonction qui gère l'appuie de la touche d'entrée
+    @FXML
+    public void appuieEntree(ActionEvent ae) throws SQLException, IOException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+        creationCompte();
     }
 
     /* fonction qui compare les champs mot de passe et confirmation de mot de passe, retourne t/f s'ils correspondent */

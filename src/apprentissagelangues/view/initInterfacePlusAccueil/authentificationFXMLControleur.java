@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -46,7 +47,7 @@ public class authentificationFXMLControleur {
     private JFXButton btnSignUp;
     @FXML
     private Label labelExitProgram;
-    
+
     private ApprentissageLangues lApprentissageLangues;
 
     /**
@@ -54,49 +55,48 @@ public class authentificationFXMLControleur {
      */
     @FXML
     public void initialize() {
-        
+
     }
-    
+
     @FXML
-    private void eventBtnLog() throws SQLException, IOException, ClassNotFoundException, InstantiationException, IllegalAccessException{
-        this.loginToDB(this.leLogin.getText(),this.textPassword.getText());
+    private void eventBtnLog() throws SQLException, IOException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+        this.loginToDB(this.leLogin.getText(), this.textPassword.getText());
     }
-    
+
     @FXML
     private void creationDeCompte() throws IOException {
-        
+
         lApprentissageLangues.showCreationCompte();
     }
 
-   
-    private void loginToDB(String pseudo, String mdp) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException  {
+    // fonction qui gère l'appuie de la touche d'entrée
+    @FXML
+    public void appuieEntree(ActionEvent ae) throws SQLException, IOException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+        eventBtnLog();
+    }
 
-        
-        String users=new String();
-        String pass=new String();
-        try{
-            connexionDB laConnexion=new connexionDB();
+    private void loginToDB(String pseudo, String mdp) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        String users = new String();
+        String pass = new String();
+        try {
+            connexionDB laConnexion = new connexionDB();
             conn = laConnexion.returnConnexion();
-            
+
             stmt = conn.createStatement();
-           
-           
-            rs = stmt.executeQuery("SELECT pseudo,mdp FROM UTILISATEUR WHERE pseudo='"+pseudo+"' AND mdp='"+mdp+"'");
-            if(rs.next())
-            {
+
+            rs = stmt.executeQuery("SELECT pseudo,mdp FROM UTILISATEUR WHERE pseudo='" + pseudo + "' AND mdp='" + mdp + "'");
+            if (rs.next()) {
                 JOptionPane.showMessageDialog(null, "Identification correct.");
                 lApprentissageLangues.setNomUtilisateur(pseudo);
                 lApprentissageLangues.showChoixLangues();
-            }
-            else
-            {
+            } else {
                 labelLoginError.setVisible(true);
             }
-            
-            
-        } catch(SQLException e){
+
+        } catch (SQLException e) {
             e.printStackTrace();
-        } 
+        }
 
     }
 
@@ -104,10 +104,9 @@ public class authentificationFXMLControleur {
     private void handleClose() {
         System.exit(0);
     }
-    
+
     public void setApprentissageLangues(ApprentissageLangues lapprentissageLangues) {
         this.lApprentissageLangues = lapprentissageLangues;
 
-       
     }
 }

@@ -6,34 +6,11 @@
 package apprentissagelangues.view.selectionLangues;
 
 import apprentissagelangues.ApprentissageLangues;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXNodesList;
-import com.jfoenix.controls.JFXRippler;
-import com.jfoenix.controls.JFXSnackbar;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
 /**
  *
@@ -51,25 +28,22 @@ public class choixLanguesControleur{
        
    @FXML
    ImageView btnEsp;
-   
    @FXML
    ImageView btnAllemand;
-   
    @FXML
    ImageView btnAnglais;
+   
     @FXML
     public void initialize() {
        
 
     }
 
-    
-    
+    // fonction qui gère la fermeture de la fenetre
     @FXML
     private void handleClose() {
         System.exit(0);
     }
-   
    
    @FXML
    private void eventBtnEsp() throws IOException{
