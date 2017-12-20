@@ -6,9 +6,10 @@
 package apprentissagelangues;
 
 import apprentissagelangues.model.UtilisateursDAO;
-import apprentissagelangues.view.magazine.MagazineController;
+import apprentissagelangues.view.outil.MagazineController;
 import apprentissagelangues.view.choixOptionsApplication.menuPrincipalChoixOptionsControleur;
 import apprentissagelangues.view.creationDeCompte.CreationDeCompteController;
+import apprentissagelangues.view.exercices.exerciceTexteATrouControleur;
 import apprentissagelangues.view.exercices.interfaceAccueilExercicesControleur;
 import apprentissagelangues.view.initInterfacePlusAccueil.authentificationFXMLControleur;
 import apprentissagelangues.view.outil.interfaceGuideGrammaControleur;
@@ -210,7 +211,7 @@ public class ApprentissageLangues extends Application {
     public void showMagazine(String nomLangue) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
         primaryStage.close();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(ApprentissageLangues.class.getResource("view/magazine/magazine.fxml"));
+        loader.setLocation(ApprentissageLangues.class.getResource("view/outil/magazine.fxml"));
         AnchorPane lMagazine = (AnchorPane) loader.load();
         Scene scene = new Scene(lMagazine);
         primaryStage.setScene(scene);
@@ -221,6 +222,25 @@ public class ApprentissageLangues extends Application {
         primaryStage.show();
         // Give the controller access to the main app.
         MagazineController controller = loader.getController();
+
+        controller.setApprentissageLangues(this);
+        controller.initialize(nomLangue);
+    }
+    
+    public void showExerciceTexteATrou(String nomLangue) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+        primaryStage.close();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(ApprentissageLangues.class.getResource("view/exercices/exerciceTexteATrouFXML.fxml"));
+        AnchorPane lexerciceTexteATrouControleur = (AnchorPane) loader.load();
+        Scene scene = new Scene(lexerciceTexteATrouControleur);
+        primaryStage.setScene(scene);
+        ft = new FadeTransition(Duration.millis(500), lexerciceTexteATrouControleur);
+        ft.setFromValue(0.0);
+        ft.setToValue(1.0);
+        ft.play();
+        primaryStage.show();
+        // Give the controller access to the main app.
+        exerciceTexteATrouControleur controller = loader.getController();
 
         controller.setApprentissageLangues(this);
         controller.initialize(nomLangue);

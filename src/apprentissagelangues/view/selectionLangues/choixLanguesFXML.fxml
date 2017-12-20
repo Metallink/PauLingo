@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -16,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="483.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apprentissagelangues.view.selectionLangues.choixLanguesControleur">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="483.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apprentissagelangues.view.selectionLangues.choixLanguesControleur">
    <stylesheets>
         <URL value="@choixlanguesfxml.css" />
     </stylesheets>
@@ -58,12 +51,12 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="348.0" layoutY="387.0" text="Allemand" textFill="WHITE">
+      <Label layoutX="360.0" layoutY="387.0" text="Allemand" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="523.0" layoutY="387.0" text="Espagnol" textFill="WHITE">
+      <Label layoutX="531.0" layoutY="387.0" text="Espagnol" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

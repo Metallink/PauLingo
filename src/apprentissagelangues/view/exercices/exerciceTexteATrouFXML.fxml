@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPaneExerciceTexteATrou" fx:id="AnchorPaneExerciceTexteATrou" prefHeight="502.0" prefWidth="769.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apprentissagelangues.view.exercices.exerciceTexteATrouControleur">
+    <stylesheets>
+        <URL value="@exercicetexteatroufxml.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane id="panelButton" fx:id="panelButton" layoutX="224.0" layoutY="347.0" prefHeight="137.0" prefWidth="337.0">
+         <children>
+            <Button id="btnRep1" fx:id="btnRep1" layoutX="14.0" layoutY="76.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Button" />
+            <Button id="btnRep3" fx:id="btnRep3" layoutX="206.0" layoutY="14.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Button" />
+            <Button id="btnRep2" fx:id="btnRep2" layoutX="206.0" layoutY="76.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Button" />
+            <Button id="btnRep4" fx:id="btnRep4" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Button" />
+         </children>
+      </AnchorPane>
+      <ImageView id="btnRetour" fx:id="btnRetour" fitHeight="47.0" fitWidth="44.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#eventBtnRetour" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@../outil/circle-with-an-arrow-pointing-to-left.png" />
+         </image>
+      </ImageView>
+      <ImageView id="imageIllustration" fx:id="imageIllustration" fitHeight="181.0" fitWidth="225.0" layoutX="272.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="230.0" layoutY="288.0" prefHeight="17.0" prefWidth="135.0" text="Label" />
+      <Label layoutX="365.0" layoutY="288.0" prefHeight="17.0" prefWidth="135.0" text="Label" />
+      <Label layoutX="510.0" layoutY="288.0" prefHeight="17.0" prefWidth="135.0" text="Label" />
+      <Label layoutX="709.0" layoutY="14.0" onMouseClicked="#handleClose" prefHeight="59.0" prefWidth="26.0" style="-fx-cursor: hand;" text="X" textFill="WHITE">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -44,32 +44,16 @@ public class interfaceOutilControleur {
        lApprentissageLangues.showChoixOptions(leNomLangue);
    }
    
-    @FXML
-   private void eventBtnValider() throws IOException{
-       if(btnRadioGramma.isSelected())
-       {
-           this.lApprentissageLangues.showInterfaceGuideGramma(leNomLangue);
-       }
-       else if(btnRadioLexique.isSelected())
-       {
-           this.lApprentissageLangues.showInterfaceLexique(leNomLangue);
-       }
+   
+   
+   @FXML
+   private void eventBtnLexique() throws IOException{
+       lApprentissageLangues.showInterfaceLexique(leNomLangue);
    }
    
    @FXML
-   private void eventBtnRadioLexique(){
-       if(btnRadioGramma.isSelected())
-       {
-           btnRadioGramma.setSelected(false);
-       }
-   }
-   
-   @FXML
-   private void eventBtnRadioGramma(){
-       if(btnRadioLexique.isSelected())
-       {
-           btnRadioLexique.setSelected(false);
-       }
+   private void eventBtnGramma() throws IOException{
+       lApprentissageLangues.showInterfaceGuideGramma(leNomLangue);
    }
    
    public void setLangue(String unNomLangue){

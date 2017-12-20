@@ -29,6 +29,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -160,7 +161,7 @@ public class interfaceGuideGrammaControleur implements Serializable {
             this.setPDF(this.uneLeçon);
         } catch (java.lang.NullPointerException e) {
             //TODO: faire une alerte (voir une notification push dans l'idéal)
-            System.out.println("Veuillez cliquer sur une cellule du tableau pour que vous puissez accéder à la leçon!");
+            JOptionPane.showMessageDialog(null,"Veuillez cliquer sur une cellule du tableau pour que vous puissez accéder à la leçon!");
         }
     }
 

@@ -7,6 +7,7 @@ package apprentissagelangues.view.exercices;
 
 import apprentissagelangues.ApprentissageLangues;
 import java.io.IOException;
+import java.sql.SQLException;
 import javafx.fxml.FXML;
 
 /**
@@ -38,6 +39,11 @@ public class interfaceAccueilExercicesControleur {
    @FXML
     private void handleClose() {
         System.exit(0);
+    }
+    
+    @FXML
+    private void eventExoTexteATrou() throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
+        lApprentissageLangues.showExerciceTexteATrou(leNomLangue);
     }
     
     public void setApprentissageLangues(ApprentissageLangues lapprentissageLangues) {//Une fonction utilisée par le contrôleur de base afin de 

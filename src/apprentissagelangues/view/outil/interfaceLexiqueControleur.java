@@ -151,13 +151,26 @@ public class interfaceLexiqueControleur {
                                                        //cette fonction parcourera le tableau pour voir si le mot existe et
                                                        // la méthode surlignera la ligne où se trouve le mot que l'utilisateur souhaite trouver.
       
-       List<String> columnData = new ArrayList<>();
+       List<String> columnNomMot = new ArrayList<>();
         for ( motLexique item : tabViewLexique.getItems()) {
-           columnData.add((String) this.columnMot.getCellObservableValue(item).getValue()); //On récupère tout les mots de la première colonnes du tableau.
+           columnNomMot.add((String) this.columnMot.getCellObservableValue(item).getValue()); //On récupère tout les mots de la première colonnes du tableau.
         }
-       for(int i=0; i<columnData.size();i++)
+       for(int i=0; i<columnNomMot.size();i++)
        {
-           if(unMot.equals(columnData.get(i)))//Si le mot recherché est trouvé alors on surligne la ligne du tableau où se trouve le mot.
+           if(unMot.equals(columnNomMot.get(i)))//Si le mot recherché est trouvé alors on surligne la ligne du tableau où se trouve le mot.
+           {
+               tabViewLexique.getSelectionModel().select(i);
+               break;
+           }
+       }
+       
+       List<String> columnMotTrad = new ArrayList<>();
+        for ( motLexique item : tabViewLexique.getItems()) {
+           columnMotTrad.add((String) this.columnTrad.getCellObservableValue(item).getValue()); //On récupère tout les mots de la première colonnes du tableau.
+        }
+       for(int i=0; i<columnMotTrad.size();i++)
+       {
+           if(unMot.equals(columnMotTrad.get(i)))//Si le mot recherché est trouvé alors on surligne la ligne du tableau où se trouve le mot.
            {
                tabViewLexique.getSelectionModel().select(i);
                break;

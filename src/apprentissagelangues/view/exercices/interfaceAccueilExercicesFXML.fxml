@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPaneAccueilExos" fx:id="AnchorPaneAccueilExos" prefHeight="723.0" prefWidth="958.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apprentissagelangues.view.exercices.interfaceAccueilExercicesControleur">
+<AnchorPane id="AnchorPaneAccueilExos" fx:id="AnchorPaneAccueilExos" prefHeight="723.0" prefWidth="958.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apprentissagelangues.view.exercices.interfaceAccueilExercicesControleur">
     <stylesheets>
         <URL value="@interfaceaccueilexercicesfxml.css" />
     </stylesheets>
@@ -21,9 +19,12 @@
       </Label>
       <AnchorPane id="AnchorPaneAffichageTypeExos" fx:id="AnchorPaneAffichageTypeExos" layoutX="27.0" layoutY="140.0" prefHeight="556.0" prefWidth="904.0">
          <children>
-            <AnchorPane id="anchorPaneUnExo" fx:id="anchorPaneUnExo" layoutX="16.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" style="-fx-cursor: hand;">
+            <AnchorPane id="anchorPaneUnExo" fx:id="anchorPaneUnExo" layoutX="16.0" layoutY="38.0" onMouseClicked="#eventExoTexteATrou" prefHeight="200.0" prefWidth="200.0" style="-fx-cursor: hand;">
                <children>
-                  <Label layoutX="20.0" layoutY="90.0" prefHeight="20.0" prefWidth="122.0" text="En développement" />
+                  <Label layoutX="41.0" layoutY="83.0" onMouseClicked="#eventExoTexteATrou" prefHeight="20.0" prefWidth="122.0" text="Textes à trou">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
                </children>
             </AnchorPane>
             <AnchorPane id="anchorPaneUnExo" fx:id="anchorPaneUnExo" layoutX="241.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" style="-fx-cursor: hand;">

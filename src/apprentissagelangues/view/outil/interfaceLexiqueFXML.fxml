@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPaneLexique" fx:id="AnchorPaneLexique" prefHeight="836.0" prefWidth="976.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apprentissagelangues.view.outil.interfaceLexiqueControleur">
+<AnchorPane id="AnchorPaneLexique" fx:id="AnchorPaneLexique" prefHeight="815.0" prefWidth="976.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apprentissagelangues.view.outil.interfaceLexiqueControleur">
     <stylesheets>
         <URL value="@interfacelexiquefxml.css" />
     </stylesheets>
@@ -31,16 +28,15 @@
             <TableColumn id="columnTrad" fx:id="columnTrad" prefWidth="147.0" text="Traduction" />
          </columns>
       </TableView>
-      <Button id="btnRetour" fx:id="btnRetour" layoutX="454.0" layoutY="749.0" mnemonicParsing="false" onAction="#eventBtnRetour" prefHeight="35.0" prefWidth="86.0" text="Retour" />
       <AnchorPane id="AnchorPaneContenueRecherche" fx:id="AnchorPaneContenueRecherche" layoutX="203.0" layoutY="93.0" prefHeight="177.0" prefWidth="573.0">
          <children>
-            <Label layoutX="61.0" layoutY="43.0" prefHeight="28.0" prefWidth="247.0" text="Quel mot recherchez-vous :" textFill="WHITE">
+            <Label layoutX="35.0" layoutY="41.0" prefHeight="28.0" prefWidth="288.0" text="Quelle traduction cherchez-vous :" textFill="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextField id="motRechercher" fx:id="motRechercher" layoutX="321.0" layoutY="44.0" prefHeight="25.0" prefWidth="181.0" />
-            <Button id="btnRechercher" fx:id="btnRechercher" layoutX="239.0" layoutY="102.0" mnemonicParsing="false" onAction="#eventBtnRechercher" prefHeight="35.0" prefWidth="104.0" text="Rechercher" />
+            <TextField id="motRechercher" fx:id="motRechercher" layoutX="329.0" layoutY="44.0" prefHeight="25.0" prefWidth="204.0" />
+            <Button id="btnRechercher" fx:id="btnRechercher" layoutX="239.0" layoutY="102.0" mnemonicParsing="false" onAction="#eventBtnRechercher" prefHeight="35.0" prefWidth="104.0" style="-fx-cursor: hand;" text="Rechercher" />
          </children>
       </AnchorPane>
       <Label layoutX="934.0" layoutY="14.0" onMouseClicked="#handleClose" prefHeight="50.0" prefWidth="28.0" text="X" textFill="WHITE">
@@ -48,5 +44,10 @@
             <Font size="37.0" />
          </font>
       </Label>
+      <ImageView id="btnRetour" fx:id="btnRetour" fitHeight="44.0" fitWidth="52.0" layoutX="32.0" layoutY="23.0" onMouseClicked="#eventBtnRetour" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@circle-with-an-arrow-pointing-to-left.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
